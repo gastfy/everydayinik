@@ -1,0 +1,55 @@
+﻿<Window x:Class="Everydaynik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Everydaynik"
+        mc:Ignorable="d"
+        Title="Ежедневничек" Height="450" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <DatePicker Grid.Row="0" x:Name="DP" HorizontalAlignment="Stretch"  VerticalAlignment="Center" SelectedDateFormat="Short" Text=""  SelectedDateChanged="DP_SelectedDateChanged"/>
+            <ListBox Grid.Row="1" x:Name="datashow" d:ItemsSource="{d:SampleData ItemCount=5}"  SelectionChanged="ListBox_SelectionChanged"/>
+
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" x:Name="createButton" Content="Создать" HorizontalAlignment="Stretch" Margin="20, 40, 20, 0" VerticalAlignment="Top"  Click="Button_Click">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Grid.Row="1" x:Name="changeButton" Content="Изменить" HorizontalAlignment="Stretch" Margin="20, 40, 20, 0" VerticalAlignment="Top" Click="Button_Click">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <Button Grid.Row="2" x:Name="DeleteButton" Content="Удалить" HorizontalAlignment="Stretch" Margin="20, 40, 20, 0"  VerticalAlignment="Top" Click="Button_Click">
+                <Button.Effect>
+                    <DropShadowEffect/>
+                </Button.Effect>
+            </Button>
+            <TextBox Grid.Row="3" x:Name="textboxName" HorizontalAlignment="Stretch" Margin="20, 10, 20, 10" TextWrapping="Wrap" Text="Название записки..." VerticalAlignment="Top" GotFocus="textbox_GotFocus" LostFocus="textbox_LostFocus"/>
+            <TextBox Grid.Row="4" Grid.RowSpan="2" x:Name="descTextBox" HorizontalAlignment="Stretch" Margin="10, -40, 10, 0" TextWrapping="Wrap" Text="Описание..." VerticalAlignment="Stretch" GotFocus="textbox_GotFocus" LostFocus="textbox_LostFocus"/>
+
+        </Grid>
+    </Grid>
+</Window>
